@@ -45,17 +45,21 @@
 
     <table>
         <tr>
+            <th> Channel Title </th>
             <th>Title</th>
             <th>Description</th>
             <th>Published At</th>
             <th>Thumbnail URL</th>
+            
         </tr>
         {% for i in response %}
         <tr>
+            <td>{{i.snippet.channelTitle}}
             <td>{{i.snippet.title}}</td>
             <td>{{i.snippet.description}}</td>
             <td>{{i.snippet.publishedAt}}</td>
             <td>{{i.snippet.thumbnails.medium.url}}</td>
+            
         </tr>
         {% endfor %}
     </table>
