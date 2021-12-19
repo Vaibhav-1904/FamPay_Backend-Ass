@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+    background-image: url('../images/bg.jpg');
+    font-family: "Montserrat", sans-serif;
+}
+
+.heading{
+    text-align: center;
+    margin-left: 100px;
+}

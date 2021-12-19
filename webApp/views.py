@@ -6,15 +6,17 @@ from rest_framework import status
 import json
 from apscheduler.schedulers.background import BackgroundScheduler
 
-
 def show_latest_videos(request):
-    response = requests.get('https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=date&q=official&key=AIzaSyDOU19eHjBasnNAlDamvnhNGWLc4BdWrrQ')
-    try:
-        if response.status_code == 200:
-            response = response.json()
-            return JsonResponse(response, safe=False)
-    except ValueError as e:
-        return Response(e.args[0], status.HTTP_400_BAD_REQUEST)
+    response = requests.get('https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=date&q=official&key=AIzaSyDCa32_gehikY8wO2EOm3kYStQE27aGXhA')
+    
+    if response.status_code == 200:
+        response = response.json()["items"]
+        # return JsonResponse(response, safe=False)
+
+        return render(request, 'main/index.html', {'response': response})
+    else:
+        return render(request, 'main/index.html', {'response': response})
+    
 
 
 # def start(request):

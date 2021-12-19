@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}" />
+    
+    <style>
+        body {
+            margin: 0;
+            box-sizing: border-box;
+            background-image: url('');
+            font-family: "Montserrat", sans-serif;
+        }
+        
+        .heading{
+            text-align: center;
+            margin-left: 100px;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        </style>
+</head>
+<body>
+    <h1 class = "heading"> List of Videos</h1>
+    
+
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Published At</th>
+            <th>Thumbnail URL</th>
+        </tr>
+        {% for i in response %}
+        <tr>
+            <td>{{i.snippet.title}}</td>
+            <td>{{i.snippet.description}}</td>
+            <td>{{i.snippet.publishedAt}}</td>
+            <td>{{i.snippet.thumbnails.medium.url}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>
