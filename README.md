@@ -9,10 +9,16 @@ Organization Name - Fampay
 
 Prepared by - Vaibhav Patel
 
-### Project Goal
+### Project Background
 
 To create an API to fetch latest videos sorted in reverse chronological order of their publishing date-time from YouTube for a given tag/search query in a paginated response.
 
+- Created an API which fetches the latest videos in reverse Chronological Order and returns the data in a JSON Object.
+- Search Query used - **official**
+- JSON Object contains elaborated data for every search queries video.
+- Use this object to store  channel_title, video_title, video_description, date_time,thumbnail URL in the database which helps in building a Dashboard.
+- JSON Object is sent to an HTML Page for displaying the result in a Paginated Response.
+- For testing an API, JSON Object can be directly sent as a JsonResponse.
 
 ## Instrcutions to run the server and test the API.
 
