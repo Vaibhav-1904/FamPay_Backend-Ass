@@ -8,10 +8,14 @@ import json
 def show_latest_videos(request):
     # collecting the response from the Youtube API
     # search query = official
-    response = requests.get('https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=date&q=official&key=AIzaSyDCa32_gehikY8wO2EOm3kYStQE27aGXhA')
+    response = requests.get('https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&order=date&q=official&key=AIzaSyAR8YCmbh_qMwI6-Ke1INSgLeYWUs2oUt0')
     
     if response.status_code == 200:
-        response = response.json()["items"]
+        response = response.json()["items"] # response contains the search query result in a JSON Object
+        
+        # if you want to run the API in PostMan, uncomment the line belowJsonResponse(response, safe=False) Hand
+        # comment down the lines after the below line, since PostMan requires a JSON Object. 
+        
         # return JsonResponse(response, safe=False)
 
         # Storing Video Details in the Database(video Model)
