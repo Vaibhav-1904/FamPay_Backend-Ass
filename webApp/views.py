@@ -47,9 +47,3 @@ def show_latest_videos(request):
     else:
         return render(request, 'main/index.html', {'response': response})
     
-
-
-# def start(request):
-#     scheduler = BackgroundScheduler()
-#     scheduler.add_job(show_latest_videos, 'interval', seconds=10)
-#     scheduler.start()
