@@ -2,6 +2,7 @@ from django.db import models
 
 
 class video(models.Model):
+    index = models.IntegerField()
     channel_title = models.CharField(max_length = 200, null=True, blank=True)
     video_title = models.CharField(max_length = 200)
     video_description = models.TextField()
