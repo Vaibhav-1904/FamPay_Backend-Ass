@@ -31,7 +31,7 @@ To create an API to fetch latest videos sorted in reverse chronological order of
 
 ## After starting the Server, you can test the API using two ways : 
 
-1) Paste the url **"http://127.0.0.1:8000/showVideos/"** in your Web Browser, it will show a Paginated response of of Searched videos in reverse chronological order of their publishing date-time.
+1) Paste the url **"http://127.0.0.1:8000/showVideos/"** in your Web Browser, it will show a Paginated response of Searched videos in reverse chronological order of their publishing date-time.
 
 ![result](https://user-images.githubusercontent.com/72696677/147092629-9b27f285-e0c6-4896-acc7-0fe466f4f178.png)
 
