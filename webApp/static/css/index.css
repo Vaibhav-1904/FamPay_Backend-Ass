@@ -1,11 +1,59 @@
+@font-face {
+    font-family: OpenSans-Regular;
+    src: url('../fonts/OpenSans/OpenSans-Regular.ttf'); 
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 body {
     margin: 0;
     box-sizing: border-box;
-    background-image: url('../images/bg.jpg');
-    font-family: "Montserrat", sans-serif;
+    background: rgb(103,97,236);
+    background: linear-gradient(90deg, rgba(103,97,236,1) 0%, rgba(185,122,200,1) 43%, rgba(171,0,255,1) 100%);
+    font-family: OpenSans-Regular;
+    color: #808080
 }
 
 .heading{
     text-align: center;
-    margin-left: 100px;
+    margin-left: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5em;
+    color: white;
+}
+
+.tablebody {
+    font-family: sans-serif;
+    border-collapse: collapse;
+    width: 85%;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 120px;
+
+    border-radius: 20px;
+}
+
+.tablebody td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 18px;
+    background-color: white;
+}
+
+.tablebody th{
+    background-color:#212529;
+    color: white;
+}
+
+.tablebody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.tablebody tr:hover {
+    color: #555555;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.tablebody tr:last-child {
+    border: 0;
 }

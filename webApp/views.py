@@ -1,10 +1,27 @@
 from django.shortcuts import render
 import requests
 from django.http import JsonResponse
-from .models import video
 import json, asyncio, aiohttp
 from asgiref.sync import sync_to_async
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
+from .serializers import videoSerializer
+from .models import video
+
+
+class VideoView(APIView): # Function used for displaying stored video data in a paginated response 
+                            # sorted in descending order of published datetime.
+
+    def get(self, request):
+
+        show_latest_videos(request)
+
+        # converting queryset data into JSON
+        queryset = video.objects.all() 
+        serializer = videoSerializer(queryset, many = True) 
+        return Response(serializer.data)
+        
 
 async def fetch(client, url):
     async with client.get(url) as resp:
@@ -24,18 +41,12 @@ async def show_latest_videos(request):
         qs = await asyncio.gather(*tasks) # qs contains the search query result in a JSON Object
 
     
-    response = qs[0]["items"] # fetching video details from JSON object as items which is returning a List
+    response = qs[0]["items"] # fetching item from JSON object
 
     await store_videos_db(response) # storing video details in database
 
-    # if you want to run the API in PostMan, uncomment the line belowJsonResponse(response, safe=False) Hand
-    # comment down the lines after the below line, since PostMan requires a JSON Object. 
-    # return JsonResponse(response, safe=False)
 
-
-    # return index page with response to show videos in chronological order with paginated response
-    return render(request, 'main/index.html', {'response': response})
-
+# Below Function is used to store to videos obtained from Youtube API to our database
 @sync_to_async
 def store_videos_db(response):
     # Storing Video Details in the Database(video Model)
@@ -63,3 +74,7 @@ def store_videos_db(response):
             thumbnail_url = url)
         obj.save()
     
+
+
+def show_dashboard(request):
+    return render(request, 'main/dashboard.html')
