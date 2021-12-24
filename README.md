@@ -16,9 +16,10 @@ To create an API to fetch latest videos sorted in reverse chronological order of
 - Created an API which fetches the latest videos in reverse Chronological Order and returns the data in a JSON Object.
 - Search Query used - **official**
 - JSON Object contains elaborated data for every search queries video.
-- Use this object to store  channel_title, video_title, video_description, date_time,thumbnail URL in the database which helps in building a Dashboard.
-- JSON Object is sent to an HTML Page for displaying the result in a Paginated Response.
-- For testing an API, JSON Object can be directly sent as a JsonResponse.
+- Used this JSON object to store Index, channel_title, video_title, video_description, date_time,thumbnail URL in the database which will be useful in fetching videos from DB and also helps in building a Dashboard.
+- **DjangoRestFramework** was used to created a GET API for fetching videos from database and sending it to the Server.
+- Serializers were used to convert QuerySet Object returned from database to JSON Response.
+- JSON Object is sent for displaying the result in a Paginated Response.
 - Result is sorted in descending order of published datetime.
 
 ## Instrcutions to run the server and test the API.
@@ -33,10 +34,12 @@ To create an API to fetch latest videos sorted in reverse chronological order of
 
 1) Paste the url **"http://127.0.0.1:8000/showVideos/"** in your Web Browser, it will show a Paginated response of Searched videos in reverse chronological order of their publishing date-time.
 
-![result](https://user-images.githubusercontent.com/72696677/147092629-9b27f285-e0c6-4896-acc7-0fe466f4f178.png)
+
+![res](https://user-images.githubusercontent.com/72696677/147314031-4ede553c-52c2-4a3d-8495-0502bd0f7c79.png)
 
 #### And the Search Query result is also getting store in our Database shown below : 
-![db](https://user-images.githubusercontent.com/72696677/147092639-481d7bf6-dbf8-4e66-9ef0-cd5aee20d884.png)
+
+![db](https://user-images.githubusercontent.com/72696677/147314026-61fd6326-a0bb-473e-a69d-2e5729310d83.png)
 
 2) Use an Application [Postman](https://www.postman.com/) which is used for Test an API. Paste the URL **"http://127.0.0.1:8000/showVideos/"** in the Field given below and then click on Send. Make sure **GET** request is selected as shown below.
 
@@ -48,6 +51,8 @@ If you want to use Postman to Test the API, you need to go to views.py file in *
 #### Below is the result after testing/Running the API in Postman
 
 ![2](https://user-images.githubusercontent.com/72696677/146721543-6ff69cbe-9e26-482b-8bf5-e85537c8fed3.png)
+
+![flowdiagram drawio](https://user-images.githubusercontent.com/72696677/147314019-d6822cb5-3bc4-4c47-b3db-f01f178b0610.png)
 
 ### I hope you Liked the Application, feel free to reach out to me on LinkedIN if you have any queries.
 
