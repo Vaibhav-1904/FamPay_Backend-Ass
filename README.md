@@ -21,6 +21,9 @@ To create an API to fetch latest videos sorted in reverse chronological order of
 - Serializers were used to convert QuerySet Object returned from database to JSON Response.
 - JSON Object is sent for displaying the result in a Paginated Response.
 - Result is sorted in descending order of published datetime.
+- Here is a Low Level Diagram Explaination of the API:
+
+![flowdiagram drawio](https://user-images.githubusercontent.com/72696677/147314516-2c145cf8-ae84-49b8-9c4a-6805d1dd0bb1.png)
 
 ## Instrcutions to run the server and test the API.
 
@@ -51,8 +54,6 @@ If you want to use Postman to Test the API, you need to go to views.py file in *
 #### Below is the result after testing/Running the API in Postman
 
 ![2](https://user-images.githubusercontent.com/72696677/146721543-6ff69cbe-9e26-482b-8bf5-e85537c8fed3.png)
-
-![flowdiagram drawio](https://user-images.githubusercontent.com/72696677/147314019-d6822cb5-3bc4-4c47-b3db-f01f178b0610.png)
 
 ### I hope you Liked the Application, feel free to reach out to me on LinkedIN if you have any queries.
 
