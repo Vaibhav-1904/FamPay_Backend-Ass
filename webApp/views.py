@@ -77,4 +77,7 @@ def store_videos_db(response):
 
 
 def show_dashboard(request):
-    return render(request, 'main/dashboard.html')
+
+    all_videos = video.objects.all()
+
+    return render(request, 'main/dashboard.html', {'all_videos': all_videos})

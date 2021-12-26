@@ -18,16 +18,54 @@ body {
 .container .dashboard{
     color:white;
     background-color: #1d3557;
-    height : 1000px;
+    height : auto;
     text-align: center;
 
 }
 
 .container .content {
     text-align: center;
-
+    padding: 1%;
 }
 
 .container .content h2{
     font-size: 2.5em;
+}
+
+
+
+.tablebody {
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    border-collapse: collapse;
+    width: 85%;
+    border-radius: 10px;
+    text-align: center;
+    border-radius: 20px;
+    margin-left: 50px;
+}
+
+.tablebody td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 10px;
+    background-color: white;
+}
+
+.tablebody th{
+    background-color:#212529;
+    color: white;
+}
+
+.tablebody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.tablebody tr:hover {
+    color: #555555;
+    background-color: #f5f5f5;
+}
+
+.tablebody tr:last-child {
+    border: 0;
 }
