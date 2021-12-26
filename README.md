@@ -55,6 +55,12 @@ If you want to use Postman to Test the API, you need to go to views.py file in *
 
 ![2](https://user-images.githubusercontent.com/72696677/146721543-6ff69cbe-9e26-482b-8bf5-e85537c8fed3.png)
 
+### Dashboard for showing stored Videos and having filter/sorting option:
+
+![dashboard](https://user-images.githubusercontent.com/72696677/147407479-7ed97953-6291-4fe1-8dbe-f79c2cf3eb2e.png)
+
+- Design and Layout is implemented, Filtering options like Sort by Time, Sort by naming is yet to be done.
+
 ### I hope you Liked the Application, feel free to reach out to me on LinkedIN if you have any queries.
 
 [Vaibhav Patel - LinkedIN](https://www.linkedin.com/in/vaibhavpatel19/)
