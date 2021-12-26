@@ -1,6 +1,4 @@
 from django.shortcuts import render
-import requests
-from django.http import JsonResponse
 import json, asyncio, aiohttp
 from asgiref.sync import sync_to_async
 from rest_framework.views import APIView
@@ -16,8 +14,12 @@ class VideoView(APIView): # Function used for displaying stored video data in a 
     def get(self, request):
 
         show_latest_videos(request)
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        task = loop.create_task(show_latest_videos(request))
+        loop.run_until_complete(task)
 
-        # converting queryset data into JSON
+        # converting queryset data into JSON using serializer
         queryset = video.objects.all() 
         serializer = videoSerializer(queryset, many = True) 
         return Response(serializer.data)
@@ -49,6 +51,7 @@ async def show_latest_videos(request):
 # Below Function is used to store to videos obtained from Youtube API to our database
 @sync_to_async
 def store_videos_db(response):
+
     # Storing Video Details in the Database(video Model)
 
     if len(video.objects.all()) != 0:
