@@ -6,5 +6,5 @@ from webApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('getapi/showVideos/', views.VideoView.as_view()),
-    path('dashboard/', views.show_dashboard),
+    path('dashboard/', views.DashboardView.as_view()),
 ]

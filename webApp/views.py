@@ -8,19 +8,19 @@ from .serializers import videoSerializer
 from .models import video
 
 
-class VideoView(APIView): # Function used for displaying stored video data in a paginated response 
+class VideoView(APIView): # API used for displaying stored video data in a paginated response 
                             # sorted in descending order of published datetime.
 
     def get(self, request):
 
-        show_latest_videos(request)
+        fetch_latest_videos(request)
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
-        task = loop.create_task(show_latest_videos(request))
+        task = loop.create_task(fetch_latest_videos(request))
         loop.run_until_complete(task)
 
         # converting queryset data into JSON using serializer
-        queryset = video.objects.all() 
+        queryset = video.objects.all().order_by('-date_time') 
         serializer = videoSerializer(queryset, many = True) 
         return Response(serializer.data)
         
@@ -31,7 +31,7 @@ async def fetch(client, url):
         return await resp.json()
 
 # search query = official
-async def show_latest_videos(request):
+async def fetch_latest_videos(request):
 
     # collecting the response from the Youtube API with asyncio
     search_url = ['https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&order=date&q=official&key=AIzaSyAR8YCmbh_qMwI6-Ke1INSgLeYWUs2oUt0']
@@ -45,12 +45,12 @@ async def show_latest_videos(request):
     
     response = qs[0]["items"] # fetching item from JSON object
 
-    await store_videos_db(response) # storing video details in database
+    await Store_Videos_DB(response) # storing video details in database
 
 
 # Below Function is used to store to videos obtained from Youtube API to our database
 @sync_to_async
-def store_videos_db(response):
+def Store_Videos_DB(response):
 
     # Storing Video Details in the Database(video Model)
 
@@ -79,8 +79,21 @@ def store_videos_db(response):
     
 
 
-def show_dashboard(request):
+# Dashboard API with Sorting option for stored videos
+class DashboardView(APIView):
 
-    all_videos = video.objects.all()
+    def get(self, request):
+        # creating a query for sorting videos
+        sort_type = self.request.query_params.get('sort')
 
-    return render(request, 'main/dashboard.html', {'all_videos': all_videos})
+        if sort_type != None:
+            if sort_type == 'video_title':
+                all_videos = video.objects.all().order_by('video_title')
+            elif sort_type == 'channel_title':
+                all_videos = video.objects.all().order_by('channel_title')
+        else:
+            all_videos = video.objects.all()
+
+        # serializer = videoSerializer(all_videos, many = True)
+        # return Response(serializer.data) 
+        return render(request, 'main/dashboard.html', {'all_videos': all_videos})

@@ -7,3 +7,4 @@ class videoSerializer(serializers.ModelSerializer):
     class Meta:
         model = video
         fields = '__all__'
+

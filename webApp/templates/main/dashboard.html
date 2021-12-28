@@ -15,8 +15,15 @@
             <h2>Dashboard</h2>
             
 
-            <h4 style=" margin-top: 150px;">Filtering Options</h4>
-            
+            <h2 style=" margin-top: 150px;">Filtering Options</h4>
+                
+            <select name="" id="filter_videos">
+                <option value="channel_title">channel_title from</option>
+                <option value="video_title">video_title</option>
+            </select>
+            <br><br><br>
+
+            <button onclick="helper()"> Filter Videos</button>
 
         </div>
 
@@ -27,7 +34,7 @@
                 <tr>
                     <th> Index </th>
                     <th> Channel Title </th>
-                    <th>Title</th>
+                    <th>Video Title</th>
                     <th>Description</th>
                     <th>Published At</th>
                     <th>Thumbnail URL</th>
@@ -47,5 +54,16 @@
             </table>
         </div>
     </div>
+
+    <script>
+        function helper() {
+            selectElement = document.getElementById('filter_videos');
+
+            query = selectElement.value;
+
+            url = 'http://127.0.0.1:8000/dashboard?sort=' + query
+            location.href = url;
+        }
+    </script>
 </body>
 </html>
