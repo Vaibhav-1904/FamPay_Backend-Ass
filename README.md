@@ -13,8 +13,9 @@ Prepared by - Vaibhav Patel
 
 To create an API to fetch latest videos sorted in reverse chronological order of their publishing date-time from YouTube for a given tag/search query in a paginated response.
 
-- Created an API which fetches the latest videos in reverse Chronological Order and returns the data in a JSON Object.
+- Created an API which fetches the latest videos from Youtube according to the search query used, stores them in DB and returns the data in a JSON Object in reverse Chronological Order.
 - Search Query used - **official**
+- **(Bonus Point Feature)** -> Created a Dashboard for viewing stored videos with sorting options like - Sort by Video_Title, Channel_Title.
 - JSON Object contains elaborated data for every search queries video.
 - Used this JSON object to store Index, channel_title, video_title, video_description, date_time,thumbnail URL in the database which will be useful in fetching videos from DB and also helps in building a Dashboard.
 - **DjangoRestFramework** was used to created a GET API for fetching videos from database and sending it to the Server.
@@ -55,11 +56,15 @@ If you want to use Postman to Test the API, you need to go to views.py file in *
 
 ![2](https://user-images.githubusercontent.com/72696677/146721543-6ff69cbe-9e26-482b-8bf5-e85537c8fed3.png)
 
-### Dashboard for showing stored Videos and having filter/sorting option:
+### Dashboard for showing stored Videos and having sorting options like Sort by Channel_Title, Video_Title:
 
-![dashboard](https://user-images.githubusercontent.com/72696677/147407479-7ed97953-6291-4fe1-8dbe-f79c2cf3eb2e.png)
+![dashboard](https://user-images.githubusercontent.com/72696677/147648628-a7a98086-c496-4396-9df6-36b4045ee65a.png)
 
-- Design and Layout is implemented, Filtering options like Sort by Time, Sort by naming is yet to be done.
+### Result
+
+![dashboardresult](https://user-images.githubusercontent.com/72696677/147648739-e6f43274-78eb-4655-bbc8-1c78a03b3c5c.png)
+
+
 
 ### I hope you Liked the Application, feel free to reach out to me on LinkedIN if you have any queries.
 
