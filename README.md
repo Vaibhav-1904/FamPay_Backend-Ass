@@ -64,7 +64,7 @@ If you want to use Postman to Test the API, you need to go to views.py file in *
 
 ![dashboardresult](https://user-images.githubusercontent.com/72696677/147648739-e6f43274-78eb-4655-bbc8-1c78a03b3c5c.png)
 
-
+Please Star the Repo if you have seen it.
 
 ### I hope you Liked the Application, feel free to reach out to me on LinkedIN if you have any queries.
 
